@@ -21,7 +21,7 @@ func main() {
 	var blist BinList
 	blist = append(blist, b1, b2)
 	fmt.Println(*blist[0], *blist[1])
-	fmt.Println(blist)
+
 }
 
 func NewBin(id string, private bool, createAt time.Time, name string) *Bin {
@@ -32,5 +32,4 @@ func NewBin(id string, private bool, createAt time.Time, name string) *Bin {
 		CreateAt: createAt,
 		Name:     name,
 	}
-
 }

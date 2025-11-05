@@ -2,35 +2,16 @@ package main
 
 import (
 	"fmt"
+	"my-project/3-struct/bins"
 	"time"
 )
 
-type BinList []*Bin
-
-type Bin struct {
-	Id       string
-	Private  bool
-	CreateAt time.Time
-	Name     string
-}
-
 func main() {
 
-	b1 := NewBin("1", true, time.Now(), "test")
-	b2 := NewBin("2", false, time.Now(), "test2")
-	var blist BinList
+	b1 := bins.NewBin("1", true, time.Now(), "test")
+	b2 := bins.NewBin("2", false, time.Now(), "test2")
+	var blist bins.BinList
 	blist = append(blist, b1, b2)
 	fmt.Println(*blist[0], *blist[1])
-	fmt.Println(blist)
-}
-
-func NewBin(id string, private bool, createAt time.Time, name string) *Bin {
-
-	return &Bin{
-		Id:       id,
-		Private:  private,
-		CreateAt: createAt,
-		Name:     name,
-	}
 
 }

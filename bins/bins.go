@@ -1,7 +1,6 @@
 package bins
 
 import (
-	"encoding/json"
 	"os"
 	"time"
 )
@@ -29,19 +28,20 @@ func NewBin(id string, private bool, createAt time.Time, name string) *Bin {
 	}
 }
 
-func (db *BinDb) Write(b []Bin) error {
+func (db *BinDb) Write(b string) error {
 
 	file, err := os.Create(db.FileName)
 	if err != nil {
 		return err
 	}
+	// var bArr []Bin
 
 	defer file.Close()
-	data, err := json.Marshal(b)
-	if err != nil {
-		return err
-	}
-	_, err = file.Write(data)
+	// data, err := json.Marshal(bArr)
+	// if err != nil {
+	// 	return err
+	// }
+	_, err = file.Write([]byte(b))
 	if err != nil {
 		return err
 	}
@@ -49,17 +49,17 @@ func (db *BinDb) Write(b []Bin) error {
 	return nil
 }
 
-func (db *BinDb) Read() ([]Bin, error) {
+func (db *BinDb) Read() (string, error) {
 
-	var b []Bin
+	//var b []Bin
 
 	data, err := os.ReadFile(db.FileName)
 	if err != nil {
-		return b, err
+		return "", err
 	}
-	err = json.Unmarshal(data, &b)
-	if err != nil {
-		return b, err
-	}
-	return b, err
+	// err = json.Unmarshal(data, &b)
+	// if err != nil {
+	// 	return b, err
+	// }
+	return string(data), err
 }

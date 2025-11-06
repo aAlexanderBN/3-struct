@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"my-project/3-struct/bins"
+	"my-project/3-struct/file"
+	"my-project/3-struct/storage"
 	"time"
 )
 
@@ -20,31 +22,36 @@ func main() {
 	db := bins.BinDb{
 		FileName: "test.json",
 	}
-	err := db.Write(barr)
-	if err != nil {
-		fmt.Println("Ошибка сохранения")
+
+	_ = db
+
+	filetest := &file.FileDb{
+		FileName: "interfacetest.json",
+	}
+	_ = filetest
+
+	bintest := &bins.BinDb{
+		FileName: "interfacetest.json",
+	}
+	_ = bintest
+
+	var testinterface storage.DataStorage
+	testinterface = bintest
+
+	data := fmt.Sprintf("%v", barr)
+
+	erri := testinterface.Write(data)
+
+	if erri != nil {
+		fmt.Println("Ошибка записи интерфейса")
 		return
 	}
-	data2, err2 := db.Read()
-	if err2 != nil {
-		fmt.Println("Ошибка сохранения")
+
+	data, erri = testinterface.Read()
+	if erri != nil {
+		fmt.Println("Ошибка чтения интерфейса")
 		return
 	}
 
-	fmt.Println("тест2б запись и чтение в файл ", data2[0], data2[1])
-
-	// 	filetest := &file.FileDb{
-	// 	FileName: "Тест FileDb интерфейса",
-	// }
-
-	// bintest := &bins.BinDb{
-	// 	FileName: "Тест BinDb интерфейсв",
-	// }
-
-	// var testinterface storage.DataStorage
-	// testinterface = filetest
-	// testinterface.Write("Тестовый данные")
-
-	// testinterface = bintest
-	// testinterface.Write("Тестовый данные")
+	fmt.Println("Прочитали файл ", data)
 }

@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"my-project/3-struct/bins"
-	"my-project/3-struct/file"
 	"my-project/3-struct/storage"
 	"time"
 )
@@ -25,15 +24,9 @@ func main() {
 
 	_ = db
 
-	filetest := &file.FileDb{
-		FileName: "interfacetest.json",
-	}
-	_ = filetest
-
 	bintest := &bins.BinDb{
 		FileName: "interfacetest.json",
 	}
-	_ = bintest
 
 	var testinterface storage.DataStorage
 	testinterface = bintest

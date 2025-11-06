@@ -1,13 +1,27 @@
 package file
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"path/filepath"
 	"strings"
 )
 
-//"os"
+type FileDb struct {
+	FileName string
+}
+
+func (db *FileDb) Write(b string) error {
+
+	fmt.Println("FileDb write ", db.FileName, b)
+	return nil
+}
+
+func (db *FileDb) Read() (string, error) {
+
+	return db.FileName, nil
+}
 
 func ReadFile(filename string) ([]byte, error) {
 

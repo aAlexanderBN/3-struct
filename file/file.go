@@ -12,15 +12,16 @@ type FileDb struct {
 	FileName string
 }
 
-func (db *FileDb) Write(b string) error {
+func (db *FileDb) Write(b []byte) error {
 
 	fmt.Println("FileDb write ", db.FileName, b)
 	return nil
 }
 
-func (db *FileDb) Read() (string, error) {
+func (db *FileDb) Read() ([]byte, error) {
 
-	return db.FileName, nil
+	var b []byte
+	return b, nil
 }
 
 func ReadFile(filename string) ([]byte, error) {

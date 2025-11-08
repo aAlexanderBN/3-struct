@@ -1,9 +1,13 @@
 package api
 
-import "fmt"
+import (
+	"fmt"
+	"my-project/3-struct/config"
+)
 
 type ApiDb struct {
 	connect string
+	key     string
 }
 
 func (db *ApiDb) Write(b string) error {
@@ -16,4 +20,12 @@ func (db *ApiDb) Read() (string, error) {
 
 	var b string
 	return b, nil
+}
+
+func NewAPI() *ApiDb {
+
+	return &ApiDb{
+		connect: "",
+		key:     config.New().Key,
+	}
 }

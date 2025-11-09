@@ -18,6 +18,16 @@ type Bin struct {
 	Name     string
 }
 
+type Bn struct {
+	Login     string    `json:"login"`
+	Password  string    `json:"password"`
+	Url       string    `json:"url"`
+	CreatedAt time.Time `json:"createdAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
+}
+
+type ArrBn []Bn
+
 func NewBin(id string, private bool, createAt time.Time, name string) *Bin {
 
 	return &Bin{

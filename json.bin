@@ -1,0 +1,26 @@
+{
+    "record": {
+        "accounts": [
+            {
+                "login": "a@a.ru",
+                "password": "HqzXKSM9o0rd",
+                "url": "http://a.ru",
+                "createdAt": "2024-05-15T12:46:49.200894+03:00",
+                "updatedAt": "2024-05-15T12:46:49.200895+03:00"
+            },
+            {
+                "login": "b@b.ru",
+                "password": "kCNodDqc5t0W",
+                "url": "https://b.ru",
+                "createdAt": "2024-05-21T18:02:15.897296+03:00",
+                "updatedAt": "2024-05-21T18:02:15.897296+03:00"
+            }
+        ],
+        "updatedAt": "2024-05-22T20:00:19.623073+03:00"
+    },
+    "metadata": {
+        "id": "691096dcd0ea881f40dd911d",
+        "createdAt": "2025-11-09T13:27:56.681Z",
+        "private": true
+    }
+}

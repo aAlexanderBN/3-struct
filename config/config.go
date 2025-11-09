@@ -12,12 +12,12 @@ type Config struct {
 }
 
 func New() *Config {
-	err := godotenv.Load("config/.env")
+	err := godotenv.Load("./config/.env")
 	if err != nil {
 		log.Fatal("❌ Не удалось загрузить .env файл:", err)
 	}
 	return &Config{
-		Key: os.Getenv("DATABASE_URL"),
+		Key: os.Getenv("KEY"),
 	}
 
 }
